@@ -1,0 +1,17 @@
+{
+  "name": "Peer Chat",
+  "short_name": "PeerChat",
+  "description": "A simple peer-to-peer chat app using PeerJS",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+  
+}
