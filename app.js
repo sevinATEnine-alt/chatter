@@ -7,6 +7,24 @@ if ("serviceWorker" in navigator) {
     .catch(err => console.error("SW registration failed:", err));
 }
 
+if ("Notification" in window) {
+  if (Notification.permission === "default") {
+    Notification.requestPermission().then(permission => {
+      console.log("Notification permission:", permission);
+    });
+  }
+}
+
+function showNotification(title, body) {
+  if (Notification.permission === "granted") {
+    new Notification(title, {
+      body: body,
+      icon: "icon-192.png", // optional, shows small icon
+    });
+  }
+}
+
+
 // ======================
 // Variables
 // ======================
@@ -205,6 +223,7 @@ function setupConnection(connection) {
   connection.on("data", data => {
     if (data.type === "message") {
       addMessage(`${data.name}: ${data.message}`);
+      showNotification(`${data.name}`, data.message);
     } else if (data.type === "typing") {
       showTypingIndicator(data.name);
     } else if (data.type === "status") {
