@@ -301,19 +301,3 @@ function sendMessage() {
 
 const installBtn = document.getElementById("installBtn");
 let deferredPrompt;
-
-// Listen for beforeinstallprompt event
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault(); // Prevent Chrome’s mini-info bar
-  deferredPrompt = e;
-  installBtn.style.display = "block";
-});
-
-installBtn.addEventListener("click", async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt(); // Show the install prompt
-  const { outcome } = await deferredPrompt.userChoice;
-  console.log("User choice:", outcome);
-  deferredPrompt = null;
-  installBtn.style.display = "none";
-});
