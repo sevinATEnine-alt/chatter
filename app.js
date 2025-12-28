@@ -54,15 +54,13 @@ const disconnectBtn = document.getElementById("disconnectBtn");
 // ======================
 // Disable input initially
 // ======================
-msgInput.disabled = true;
-sendBtn.disabled = true;
+// msgInput.disabled = true;
+// sendBtn.disabled = true;
 
 // ======================
 // Enable/disable input
 // ======================
 function setConnected(isConnected) {
-  msgInput.disabled = !isConnected;
-  sendBtn.disabled = !isConnected;
 }
 
 // ======================
